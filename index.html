@@ -18,7 +18,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231d5c52'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' text-anchor='middle' fill='%23fbfaf7'%3Edb%3C/text%3E%3C/svg%3E">
 <style>
 :root{
-  --bg:#f5f4ef;--fg:#16201e;--muted:#52605c;--rule:#dcdad2;--accent:#1d5c52;
+  --bg:#f5f4ef;--fg:#16201e;--muted:#3f4d49;--rule:#dcdad2;--accent:#1d5c52;
   --chip:rgba(255,255,255,.55);--chip-b:#cfcdc4;
   --b1:rgba(66,168,148,.34);--b2:rgba(98,128,236,.22);--b3:rgba(232,190,120,.34);
   --serif:"Iowan Old Style","Palatino Linotype",Palatino,Charter,"Bitstream Charter",Georgia,serif;
@@ -26,7 +26,7 @@
 }
 @media (prefers-color-scheme:dark){
   :root{
-    --bg:#0e1413;--fg:#e9efec;--muted:#9fb0aa;--rule:#26302d;--accent:#7fd1bd;
+    --bg:#0e1413;--fg:#e9efec;--muted:#b6c5bf;--rule:#26302d;--accent:#7fd1bd;
     --chip:rgba(255,255,255,.05);--chip-b:#2f3c38;
     --b1:rgba(52,150,128,.30);--b2:rgba(84,110,220,.22);--b3:rgba(190,150,90,.16);
   }
@@ -34,6 +34,7 @@
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--fg);font:1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+main{text-shadow:0 0 .4rem var(--bg),0 0 .9rem var(--bg),0 0 1.4rem var(--bg)}
 
 /* background: static colour wash (zero cost) + one canvas of geometric ticks */
 .bg{position:fixed;inset:0;z-index:-1;pointer-events:none;contain:strict;
@@ -150,7 +151,7 @@ footer{margin-top:3.5rem;color:var(--muted);font-size:.875rem}
       dx=cx[i]-px;dy=cy[i]-py;
       if(dx*dx+dy*dy>far){ctx.moveTo(cx[i]-C*l0,cy[i]-C*l0);ctx.lineTo(cx[i]+C*l0,cy[i]+C*l0)}
     }
-    ctx.globalAlpha=.16;ctx.stroke();
+    ctx.globalAlpha=.12;ctx.stroke();
     // near ticks: rotate into a spiral around the pointer and stretch
     ctx.beginPath();
     for(i=0;i<n;i++){
@@ -163,7 +164,7 @@ footer{margin-top:3.5rem;color:var(--muted);font-size:.875rem}
       len=l0+f*f*cell*.5;
       ctx.moveTo(cx[i]-vx*len,cy[i]-vy*len);ctx.lineTo(cx[i]+vx*len,cy[i]+vy*len);
     }
-    ctx.globalAlpha=.4;ctx.stroke();
+    ctx.globalAlpha=.26;ctx.stroke();
   }
 
   function loop(t){

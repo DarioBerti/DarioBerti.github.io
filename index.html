@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dario Berti</title>
+<meta name="description" content="Dario Berti — AI engineer in Turin, building agentic LLM systems for high-stakes domains. MSc Computer Engineering, Politecnico di Torino.">
+<meta name="author" content="Dario Berti">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151514" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://dario-berti.com/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Dario Berti">
+<meta property="og:description" content="AI engineer building agentic LLM systems for high-stakes domains.">
+<meta property="og:url" content="https://dario-berti.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231b1b1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' text-anchor='middle' fill='%23fbfaf7'%3Edb%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#fbfaf7;--fg:#1b1b1a;--muted:#5d5c58;--rule:#e4e2dc;--accent:#1f4fbf;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Charter,"Bitstream Charter",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#151514;--fg:#ecebe6;--muted:#a5a39c;--rule:#2d2c2a;--accent:#8fb0ff}
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--fg);
+  font:1.0625rem/1.65 var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+main{max-width:36rem;margin:0 auto;padding:clamp(3rem,10vh,7rem) 1.25rem 4rem}
+h1{font:400 2.25rem/1.15 var(--serif);letter-spacing:-.01em;margin:0 0 .35rem}
+.role{color:var(--muted);margin:0 0 2.5rem}
+p{margin:0 0 1.1rem}
+h2{
+  font:600 .8125rem/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);margin:3rem 0 1rem;padding-top:1.5rem;border-top:1px solid var(--rule);
+}
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+ul{list-style:none;margin:0;padding:0}
+.links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem}
+.work li{display:grid;grid-template-columns:1fr auto;gap:.15rem 1rem;margin-bottom:1.15rem}
+.work .y{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.9375rem}
+.work .d{grid-column:1/-1;color:var(--muted);font-size:.9375rem;line-height:1.55}
+.work strong{font-weight:600}
+footer{margin-top:3.5rem;color:var(--muted);font-size:.875rem}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:1rem;top:1rem;background:var(--bg);padding:.5rem .75rem}
+@media print{a{color:inherit}main{padding-top:0}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<main id="main">
+  <h1>Dario Berti</h1>
+  <p class="role">AI engineer &middot; Turin, Italy</p>
+
+  <p>I build agentic LLM systems meant to be trusted where mistakes are expensive. Right now that means my MSc thesis at <a href="https://linksfoundation.com/en/">LINKS Foundation</a>: an agent that models criminal investigations, where a deterministic validator checks every generated answer against criminal-procedure rules, so the model never grades its own work.</p>
+  <p>I care more about the problem than the stack. Before LLMs I spent most of my time on distributed systems and DevOps (Kafka, Kubernetes, GitOps), and that still shapes how I build: specs traced to tests, failures tested on purpose, CI that says no.</p>
+  <p>I&rsquo;m finishing an MSc in Computer Engineering at Politecnico di Torino (March 2027) and looking for AI engineer and AI research engineer roles.</p>
+
+  <h2>Elsewhere</h2>
+  <ul class="links">
+    <li><a href="dario-berti-cv.pdf" type="application/pdf">CV (PDF)</a></li>
+    <li><a href="https://www.linkedin.com/in/dario-berti-210843278/" rel="me">LinkedIn</a></li>
+    <li><a href="https://github.com/DarioBerti" rel="me">GitHub</a></li>
+    <li><a href="mailto:dario.berti100@gmail.com">Email</a></li>
+  </ul>
+
+  <h2>Selected work</h2>
+  <ul class="work">
+    <li>
+      <strong>Agentic system for criminal investigations</strong><span class="y">2026</span>
+      <span class="d">MSc thesis, LINKS Foundation. Generator&ndash;validator architecture, near-zero hallucinations in expert-reviewed runs. Kotlin, React, Claude API.</span>
+    </li>
+    <li>
+      <a href="https://github.com/DarioBerti/capstone-application-g03"><strong>EuroTransit</strong></a><span class="y">2026</span>
+      <span class="d">Cloud-native ticket marketplace. Kafka saga with transactional outbox; zero lost or duplicated bookings across 8 chaos experiments.</span>
+    </li>
+    <li>
+      <a href="https://github.com/DarioBerti/LetMeCook"><strong>LetMeCook</strong></a><span class="y">2026</span>
+      <span class="d">Android social recipe app. Jetpack Compose, MVVM, real-time Firestore feed.</span>
+    </li>
+    <li>
+      <a href="https://github.com/DarioBerti/crowdsensing-web-app"><strong>Street-light crowdsensing</strong></a><span class="y">2024</span>
+      <span class="d">BSc thesis, University of Bologna. Phones as the only sensor for mapping city lighting.</span>
+    </li>
+  </ul>
+
+  <footer>&copy; 2026 Dario Berti</footer>
+</main>
+</body>
+</html>

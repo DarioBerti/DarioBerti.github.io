@@ -7,58 +7,87 @@
 <meta name="description" content="Dario Berti — AI engineer in Turin, building agentic LLM systems for high-stakes domains. MSc Computer Engineering, Politecnico di Torino.">
 <meta name="author" content="Dario Berti">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#151514" media="(prefers-color-scheme: dark)">
-<link rel="canonical" href="https://dario-berti.com/">
+<meta name="theme-color" content="#f5f4ef" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1413" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://darioberti.github.io/">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Dario Berti">
 <meta property="og:description" content="AI engineer building agentic LLM systems for high-stakes domains.">
-<meta property="og:url" content="https://dario-berti.com/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231b1b1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' text-anchor='middle' fill='%23fbfaf7'%3Edb%3C/text%3E%3C/svg%3E">
+<meta property="og:url" content="https://darioberti.github.io/">
+<meta property="og:image" content="https://darioberti.github.io/dario-berti.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231d5c52'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' text-anchor='middle' fill='%23fbfaf7'%3Edb%3C/text%3E%3C/svg%3E">
 <style>
 :root{
-  --bg:#fbfaf7;--fg:#1b1b1a;--muted:#5d5c58;--rule:#e4e2dc;--accent:#1f4fbf;
+  --bg:#f5f4ef;--fg:#16201e;--muted:#52605c;--rule:#dcdad2;--accent:#1d5c52;
+  --chip:rgba(255,255,255,.55);--chip-b:#cfcdc4;
+  --b1:rgba(66,168,148,.34);--b2:rgba(98,128,236,.22);--b3:rgba(232,190,120,.34);
   --serif:"Iowan Old Style","Palatino Linotype",Palatino,Charter,"Bitstream Charter",Georgia,serif;
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
 @media (prefers-color-scheme:dark){
-  :root{--bg:#151514;--fg:#ecebe6;--muted:#a5a39c;--rule:#2d2c2a;--accent:#8fb0ff}
+  :root{
+    --bg:#0e1413;--fg:#e9efec;--muted:#9fb0aa;--rule:#26302d;--accent:#7fd1bd;
+    --chip:rgba(255,255,255,.05);--chip-b:#2f3c38;
+    --b1:rgba(52,150,128,.30);--b2:rgba(84,110,220,.22);--b3:rgba(190,150,90,.16);
+  }
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
-body{
-  margin:0;background:var(--bg);color:var(--fg);
-  font:1.0625rem/1.65 var(--sans);
-  -webkit-font-smoothing:antialiased;
+body{margin:0;background:var(--bg);color:var(--fg);font:1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+
+/* animated background: three radial gradients, moved only with transform (GPU, no repaint) */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;contain:strict}
+.bg i{position:absolute;display:block;will-change:transform}
+.bg b{display:block;width:70vmax;height:70vmax;border-radius:50%;will-change:transform;animation:drift 26s ease-in-out infinite alternate}
+.bg i:nth-child(1){left:-20vmax;top:-25vmax}
+.bg i:nth-child(2){right:-25vmax;top:10vmax}
+.bg i:nth-child(3){left:5vmax;bottom:-40vmax}
+.bg i:nth-child(1) b{background:radial-gradient(closest-side,var(--b1),transparent)}
+.bg i:nth-child(2) b{background:radial-gradient(closest-side,var(--b2),transparent);animation-duration:32s;animation-delay:-9s}
+.bg i:nth-child(3) b{background:radial-gradient(closest-side,var(--b3),transparent);animation-duration:38s;animation-delay:-17s}
+@keyframes drift{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(9vmax,6vmax,0) scale(1.12)}
+  100%{transform:translate3d(-6vmax,11vmax,0) scale(.94)}
 }
-main{max-width:36rem;margin:0 auto;padding:clamp(3rem,10vh,7rem) 1.25rem 4rem}
-h1{font:400 2.25rem/1.15 var(--serif);letter-spacing:-.01em;margin:0 0 .35rem}
-.role{color:var(--muted);margin:0 0 2.5rem}
+@media (prefers-reduced-motion:reduce){.bg b{animation:none}}
+
+main{max-width:38rem;margin:0 auto;padding:clamp(2.5rem,9vh,6rem) 1.25rem 4rem}
+header{display:flex;align-items:center;gap:1.25rem;margin-bottom:2.25rem}
+.me{width:5.5rem;height:5.5rem;border-radius:50%;object-fit:cover;flex:none;background:var(--rule);box-shadow:0 0 0 1px var(--rule)}
+h1{font:400 2.25rem/1.1 var(--serif);letter-spacing:-.01em;margin:0 0 .3rem}
+.role{color:var(--muted);margin:0}
 p{margin:0 0 1.1rem}
-h2{
-  font:600 .8125rem/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;
-  color:var(--muted);margin:3rem 0 1rem;padding-top:1.5rem;border-top:1px solid var(--rule);
-}
+h2{font:600 .8125rem/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:3rem 0 1.1rem;padding-top:1.5rem;border-top:1px solid var(--rule)}
 a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em}
 a:hover{text-decoration-thickness:2px}
-a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
 ul{list-style:none;margin:0;padding:0}
-.links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem}
-.work li{display:grid;grid-template-columns:1fr auto;gap:.15rem 1rem;margin-bottom:1.15rem}
+.links{display:flex;flex-wrap:wrap;gap:.6rem}
+.links a{display:inline-flex;align-items:center;min-height:2.75rem;padding:0 1.1rem;border:1px solid var(--chip-b);border-radius:999px;background:var(--chip);text-decoration:none;font-weight:500;transition:border-color .15s,background-color .15s}
+.links a:hover{border-color:var(--accent)}
+.work li{display:grid;grid-template-columns:1fr auto;gap:.15rem 1rem;margin-bottom:1.2rem}
 .work .y{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.9375rem}
 .work .d{grid-column:1/-1;color:var(--muted);font-size:.9375rem;line-height:1.55}
 .work strong{font-weight:600}
 footer{margin-top:3.5rem;color:var(--muted);font-size:.875rem}
 .skip{position:absolute;left:-999px}
-.skip:focus{left:1rem;top:1rem;background:var(--bg);padding:.5rem .75rem}
-@media print{a{color:inherit}main{padding-top:0}}
+.skip:focus{left:1rem;top:1rem;background:var(--bg);padding:.5rem .75rem;z-index:2}
+@media (max-width:30rem){h1{font-size:1.9rem}.me{width:4.5rem;height:4.5rem}}
+@media print{.bg{display:none}a{color:inherit}main{padding-top:0}}
 </style>
 </head>
 <body>
+<div class="bg" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i></div>
 <a class="skip" href="#main">Skip to content</a>
 <main id="main">
-  <h1>Dario Berti</h1>
-  <p class="role">AI engineer &middot; Turin, Italy</p>
+  <header>
+    <img class="me" src="dario-berti.jpg" width="400" height="400" alt="Portrait of Dario Berti">
+    <div>
+      <h1>Dario Berti</h1>
+      <p class="role">AI engineer &middot; Turin, Italy</p>
+    </div>
+  </header>
 
   <p>I build agentic LLM systems meant to be trusted where mistakes are expensive. Right now that means my MSc thesis at <a href="https://linksfoundation.com/en/">LINKS Foundation</a>: an agent that models criminal investigations, where a deterministic validator checks every generated answer against criminal-procedure rules, so the model never grades its own work.</p>
   <p>I care more about the problem than the stack. Before LLMs I spent most of my time on distributed systems and DevOps (Kafka, Kubernetes, GitOps), and that still shapes how I build: specs traced to tests, failures tested on purpose, CI that says no.</p>
@@ -94,5 +123,24 @@ footer{margin-top:3.5rem;color:var(--muted);font-size:.875rem}
 
   <footer>&copy; 2026 Dario Berti</footer>
 </main>
+<script>
+(function(){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  var el=[].slice.call(document.querySelectorAll(".bg i")),k=[.22,-.16,.12],
+      w=innerWidth,h=innerHeight,tx=0,ty=0,x=0,y=0,run=false;
+  function frame(){
+    x+=(tx-x)*.06;y+=(ty-y)*.06;
+    for(var i=0;i<el.length;i++)el[i].style.transform="translate3d("+(x*k[i]).toFixed(1)+"px,"+(y*k[i]).toFixed(1)+"px,0)";
+    if(Math.abs(tx-x)>.3||Math.abs(ty-y)>.3)requestAnimationFrame(frame);else run=false;
+  }
+  function move(e){
+    tx=e.clientX-w/2;ty=e.clientY-h/2;
+    if(!run){run=true;requestAnimationFrame(frame)}
+  }
+  addEventListener("pointermove",move,{passive:true});
+  addEventListener("pointerdown",move,{passive:true});
+  addEventListener("resize",function(){w=innerWidth;h=innerHeight},{passive:true});
+})();
+</script>
 </body>
 </html>
